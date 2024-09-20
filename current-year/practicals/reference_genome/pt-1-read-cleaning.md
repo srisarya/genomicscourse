@@ -323,7 +323,7 @@ These rare k-mers are likely to be errors that appeared during library
 preparation or sequencing, or **could be rare somatic mutations**. Analogously
 (although not shown in the above plot) other k-mers may exist at very large
 coverage (up to 10,000). These could be viruses or other pathogens, 
-or highly repetitive parts of the genome, such as transposons and simple repeats.
+or highly repetitive parts of the genome, such as [transposons](https://en.wikipedia.org/wiki/Transposable_element) (also called transposable elements).
 
 > **_Note_:**
 > Extremely rare and extremely frequent sequences can both confuse assembly
