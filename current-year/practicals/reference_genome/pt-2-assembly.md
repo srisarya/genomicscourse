@@ -3,7 +3,7 @@ layout: page
 title: Part 2 - Genome assembly
 ---
 
-<!-- Updated by Alexis Gkantiragas, 2023 -->
+<!-- Updated by Srishti Arya, 2024 -->
 
 # Part 2: Genome assembly
 
@@ -17,32 +17,34 @@ Many different pieces of software exist for genome assembly. We will be using
 
 Following the same procedure described in Section 1.2 of
 [Part 1: Read cleaning](pt-1-read-cleaning.html), create a new main directory
-for today's practical (e.g., `2023-09-27-assembly`), the `input`, `tmp`,
+for today's practical (e.g., `2024-09-25-assembly`), the `input`, `tmp`,
 and `results` subdirectories, and the file `WHATIDID.txt` to log your
 commands.  
-Link the output (cleaned reads) from Part 1 practical into `input` subdirectory:
+
+Symlink the output (cleaned reads) from Part 1 practical into `input` subdirectory:
 
 ```bash
-cd ~/2023-09-27-assembly
+cd ~/2024-09-25-assembly
 cd input
-ln -s ~/2023-09-26-read_cleaning/results/reads.pe*.clean.fq .
+ln -s ~/2024-09-25-read_cleaning/results/reads.pe*.clean.fq .
 cd ..
 ```
 
 > **_Question:_**  
 > * Did you note the use of `*` in the above command?
-> * What does it do? (Hint: the symbol `*` is called 'globbing')
+> * What does it do? (Hint: the symbol `*` is used in bash scripting and a few other languages, which you may know)
 
 To assemble our cleaned reads with *SPAdes*, run the following line: 
-(_This will take about 10 minutes_)
+(_This will take about 15 minutes; 
+remember to keep visually checking what's happening, and consider the printed notes_)
 
 ```bash
 spades.py -o tmp -1 input/reads.pe1.clean.fq -2 input/reads.pe2.clean.fq
 ```
 
 Like any other assembler, *SPAdes* creates many files, including a 
-`scaffolds.fasta` file that is likely to be used for follow-up 
-analyses.  
+`scaffolds.fasta` file that is often used for follow-up 
+analyses.  We will use it today.
 <!-- [.](../../data/reference_assembly/output/scaffolds.fasta.gz?raw=true).   -->
 Copy this file to your `results` directory:
 
@@ -97,7 +99,7 @@ generate a standardized report. Run *Quast* on the `scaffolds.fasta`
 file without special options to get the basic statistics:
 
 ```bash
-cd ~/2023-09-27-assembly/results
+cd ~/2024-09-25-assembly/results
 quast.py scaffolds.fasta
 ```
 
@@ -110,7 +112,7 @@ output directory to `~/www/tmp` and access through your browser).
 > * Why does *Quast* use the word "contig"?
 
 In some cases, we have prior knowledge about the expected percentage of **GC** 
-content, the number of chromosomes, and the total genome size. These information
+content, the number of chromosomes, and the total genome size. This information
 can be compared to the statistics present in Quast's report.
 
 ## 2.2 Biologically meaningful measures
@@ -153,3 +155,5 @@ approaches.
 
 Try to figure out what are the [tradeoffs between `de bruijn` graph and 
 `overlap-layout-consensus` assembly approaches](https://www.nature.com/articles/nrg3367).
+
+What are the differences between genome assembly and transcriptome assembly?
