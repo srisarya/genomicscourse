@@ -52,7 +52,7 @@ For each practical, you will have to create the following directory structure:
   (`YYYY-MM-DD-name_of_the_practical`, where `YYYY` is the current year, `MM` is
   the current month, and `DD` is the current day, and `name_of_the_practical`
   matches the practical). For instance, on the 24th of September 2024 you should
-  create the directory `2023-09-26_read_cleaning` for this practical. In the
+  create the directory `2023-09-24_read_cleaning` for this practical. In the
   tutorial we will use this example directory name.
 * Inside this directory, create other three directories, called `input`, `tmp`,
   and `results`.
@@ -144,7 +144,7 @@ cd ..
 The structure of your directory should look like this (use the command `tree`):
 
 ```bash
-2023-09-26-read_cleaning
+2024-09-24-read_cleaning
 ├── input
 │   ├── reads.pe1.fastq.gz -> ../../shared/data/reads.pe1.fastq.gz
 │   └── reads.pe2.fastq.gz -> ../../shared/data/reads.pe2.fastq.gz
