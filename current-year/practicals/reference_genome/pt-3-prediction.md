@@ -3,7 +3,7 @@ layout: page
 title: Part 3 - Gene prediction
 ---
 
-<!-- Updated by Alexis Gkantiragas, 2023 -->
+<!-- Updated by Srishti Arya, 2024 -->
 
 # Part 3: Gene prediction
 
@@ -26,14 +26,14 @@ In this practical, we will use `MAKER`.
 
 Following the same procedure described in Section 1.2 of
 [Part 1: Read cleaning](pt-1-read-cleaning.html), create a new main directory
-for today's practical (e.g., `2023-09-29-gene_prediction`) and the `input`,
+for today's practical (e.g., `2024-09-26-gene_prediction`) and the `input`,
 `tmp`, and `results` subdirectories, and the file `WHATIDID.txt` to log your
 commands.
 Link the output (assembly) from Part 2 practical into `input` subdirectory:
 
 ```bash
-cd ~/2023-09-29-gene_prediction/input
-ln -s ~/2023-09-27-assembly/results/scaffolds.fasta .
+cd ~/2024-09-26-gene_prediction/input
+ln -s ~/2024-09-25-assembly/results/scaffolds.fasta .
 cd ..
 ```
 
@@ -45,22 +45,23 @@ seqtk seq -L 10000 input/scaffolds.fasta > tmp/min10000.fa
 
 Gene prediction can be difficult if the assembly is of low quality and does not
 include long scaffolds. For instance, in the case of short scaffolds, if a gene
-is 2,000 bp long and includes introns, it may be very hard finding many entire
+is 2,000 bp long and contains introns, it may be very hard to find many entire
 genes. 
 
 > **_Note_:**  
 > If you have difficulty in predicting the genes or you suspect that your
-> assembly may be affected by the forementioned issues, you can use alreaady
+> assembly may be affected by the aforementioned issues, you can use already
 > assembled scaffolds.
 > ```bash
 > # Link this scaffolds file into your input directory
-> ln -s /shared/data/backup_assembly/scaffolds.fasta .
+> ln -s ../../shared/data/backup_assembly/scaffolds.fasta .
 > ```
 
-In this practical, we will show how to run MAKER in a simple scenario. For a
-better understanding of how this tool works, and how it can be applied in real
-case scenarios, we encourage to read the paper and documentation. Also, checking
-which settings were used in recent publications can be very helpful. 
+In this practical, we will show how to run MAKER in a simple scenario.
+For a better understanding of how this tool works, and how it can be applied in real-case 
+scenarios, we _strongly_ encourage you to read the paper and documentation. 
+Check the options (often called flags) and see why you may need each one, when you eventually run your own analyses.
+Also, checking which settings were used in recent publications can be very helpful, for reproducing analyses and critiquing. 
 
 Change to your `tmp` directory and run `maker`:
 
@@ -80,9 +81,10 @@ specify:
   * Augustus_species:`honeybee1` (remember to add 1 at the end; this provides
     hints to Augustus about the gene structure based on what we know about gene composition from the honeybee.
 
-We deactivated RepeatMakser and RepeatRunner due to computational limitations
+We deactivated RepeatMasker and RepeatRunner due to computational limitations
 as well as the lack of a suitable library of repetitive elements for this
-species. For a real project, we *would* include RepeatMasker, likely after 
+species. 
+For a real project, we *would* include RepeatMasker, likely after 
 creating a new repeat library for our species.  
 For a real project, we would also include gene expression data (RNAseq improves
 gene prediction performance *tremendously*), protein sequences from related
@@ -172,7 +174,7 @@ The
 tool can help to evaluate the quality of a gene prediction by comparing features
 of a predicted gene to similar database sequences. This approach expects that
 similar sequences should for example be of similar length. *Genevalidator* was
-built to automate the comparison of sequence characteristics in a manner similar
+built to automate the comparison of sequence characteristics similar
 to what we just did through visual individual BLAST results.
 
 Try to run the [example rice and honeybee protein sequences](predictions.fa)
