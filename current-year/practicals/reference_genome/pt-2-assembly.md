@@ -26,7 +26,7 @@ Symlink the output (cleaned reads) from Part 1 practical into `input` subdirecto
 ```bash
 cd ~/2024-09-25-assembly
 cd input
-ln -s ~/2024-09-25-read_cleaning/results/reads.pe*.clean.fq .
+ln -s ~/2024-09-24-read_cleaning/results/reads.pe*.clean.fq .
 cd ..
 ```
 
